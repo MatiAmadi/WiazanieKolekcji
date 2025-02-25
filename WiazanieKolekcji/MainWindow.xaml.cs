@@ -8,7 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace WiazanieKolekcji
 {
@@ -25,14 +27,21 @@ namespace WiazanieKolekcji
         private void PrzygotujWiazanie()
         {
             ListaProduktow = new ObservableCollection<Produkt>
-            {
-                new Produkt("O1-11", "Ołówek", 8, "Katowice 1"),
-                new Produkt("PW-20", "Pióro wieczne", 75, "Katowice 2"),
-                new Produkt("DZ-10", "Długopis żelowy", 121, "Katowice 1"),
-                new Produkt("DZ-12", "Długopis kulkowy", 280, "Katowice 2")
-            };
+        {
+            new Produkt("O1-11", "Ołówek", 8, "Katowice 1"),
+            new Produkt("PW-20", "Pióro wieczne", 75, "Katowice 2"),
+            new Produkt("DZ-10", "Długopis żelowy", 121, "Katowice 1"),
+            new Produkt("DZ-12", "Długopis kulkowy", 280, "Katowice 2")
+        };
 
             lstProdukty.ItemsSource = ListaProduktow;
+
+   
+            CollectionView widok = (CollectionView)CollectionViewSource.GetDefaultView(lstProdukty.ItemsSource);
+
+            widok.SortDescriptions.Add(new SortDescription("Magazyn", ListSortDirection.Ascending));
+            widok.SortDescriptions.Add(new SortDescription("Nazwa", ListSortDirection.Ascending));
         }
     }
+
 }
