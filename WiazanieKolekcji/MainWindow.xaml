@@ -8,7 +8,7 @@
         Title="Lista produktów" Height="450" Width="800">
 
 	<Grid>
-		<!-- Definicja wierszy i kolumn -->
+		<!-- Def kol -->
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
@@ -19,7 +19,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<!-- Pole filtrowania -->
+		<!-- filtr -->
 		<Label Content="Filtruj wg nazwy produktu:" Grid.Row="0" Grid.Column="0" Margin="5"/>
 		<TextBox Name="txtFilter" Grid.Row="0" Grid.Column="1" Margin="5"
                  TextChanged="txtFilter_TextChanged"/>
