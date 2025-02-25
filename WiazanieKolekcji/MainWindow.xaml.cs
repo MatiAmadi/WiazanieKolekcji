@@ -15,6 +15,7 @@ using System.Windows.Data;
 
 namespace WiazanieKolekcji
 {
+
     public partial class MainWindow : Window
     {
         private ObservableCollection<Produkt> ListaProduktow = null;
