@@ -36,5 +36,18 @@ namespace WiazanieKolekcji
 
             this.Close();
         }
+
+        private void lstProdukty_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lstProdukty.SelectedItem is Produkt wybranyProdukt)
+            {
+                Window1 oknoEdycji = new Window1(wybranyProdukt);
+                oknoEdycji.ShowDialog();
+
+                // Odœwie¿ widok po zamkniêciu okna
+                viewSource.View.Refresh();
+            }
+        }
+
     }
 }
