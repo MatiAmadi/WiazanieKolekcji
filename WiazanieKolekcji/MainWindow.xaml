@@ -15,8 +15,17 @@
                                         DisplayMemberBinding="{Binding Symbol}" Width="100"/>
 						<GridViewColumn Header="Nazwa"
                                         DisplayMemberBinding="{Binding Nazwa}" Width="200"/>
-						<GridViewColumn Header="Liczba sztuk"
-                                        DisplayMemberBinding="{Binding LiczbaSztuk}" Width="120"/>
+						<GridViewColumn Header="Liczba sztuk">
+							<GridViewColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding LiczbaSztuk}"
+											   FontSize="12"
+											   Foreground="Green"
+											   FontWeight="Bold"/>
+								</DataTemplate>
+							</GridViewColumn.CellTemplate>
+						</GridViewColumn>
+
 						<GridViewColumn Header="Magazyn"
                                         DisplayMemberBinding="{Binding Magazyn}" Width="150"/>
 					</GridView.Columns>
