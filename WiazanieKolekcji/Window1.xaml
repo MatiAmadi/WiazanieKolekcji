@@ -18,16 +18,16 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Symbol:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="txtSymbol" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <TextBox Text="{Binding Symbol}" Grid.Row="0" Grid.Column="1" Margin="5"/>
 
         <Label Content="Nazwa:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="txtNazwa" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <TextBox Text="{Binding Nazwa}" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
         <Label Content="Liczba sztuk:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="txtLiczbaSztuk" Grid.Row="2" Grid.Column="1" Margin="5"/>
+        <TextBox Text="{Binding LiczbaSztuk}" Grid.Row="2" Grid.Column="1" Margin="5"/>
 
         <Label Content="Magazyn:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="txtMagazyn" Grid.Row="3" Grid.Column="1" Margin="5"/>
+        <TextBox Text="{Binding Magazyn}" Grid.Row="3" Grid.Column="1" Margin="5"/>
 
         <Button Name="btnPotwierdz" Content="PotwierdŸ" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
                 Margin="5" HorizontalAlignment="Center" Click="btnPotwierdz_Click"/>

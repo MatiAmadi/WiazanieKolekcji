@@ -47,11 +47,10 @@ namespace WiazanieKolekcji
 
         private bool FiltrUzytkownika(object item)
         {
-            if (String.IsNullOrEmpty(txtFilter.Text))
+            if (string.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return ((item as Produkt).Nazwa.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
+                return ((item as Produkt).Nazwa?.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase) ?? false);
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
