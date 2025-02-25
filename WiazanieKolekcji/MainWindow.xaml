@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:WiazanieKolekcji"
         mc:Ignorable="d"
         Title="Lista produktów" Height="450" Width="800">
+
+	<Window.Resources>
+		<Style TargetType="ListViewItem">
+			<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		</Style>
+	</Window.Resources>
+
 	<Grid>
 		<ListView x:Name="lstProdukty" Margin="10">
 			<ListView.View>
@@ -19,13 +26,14 @@
 							<GridViewColumn.CellTemplate>
 								<DataTemplate>
 									<TextBlock Text="{Binding LiczbaSztuk}"
-											   FontSize="12"
-											   Foreground="Green"
-											   FontWeight="Bold"/>
+                                               FontSize="12"
+                                               Foreground="Green"
+                                               FontWeight="Bold"
+                                               Background="LightGray"
+                                               TextAlignment="Right"/>
 								</DataTemplate>
 							</GridViewColumn.CellTemplate>
 						</GridViewColumn>
-
 						<GridViewColumn Header="Magazyn"
                                         DisplayMemberBinding="{Binding Magazyn}" Width="150"/>
 					</GridView.Columns>
