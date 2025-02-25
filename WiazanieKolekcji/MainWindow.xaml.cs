@@ -51,6 +51,7 @@ namespace WiazanieKolekcji
                 return true;
             else
                 return ((item as Produkt).Nazwa?.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase) ?? false);
+        }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
