@@ -56,5 +56,21 @@ namespace WiazanieKolekcji
         {
             viewSource.View.Refresh();
         }
+
+        private void btnUsunProdukt_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstProdukty.SelectedItem is Produkt wybranyProdukt)
+            {
+                ListaProduktow.Remove(wybranyProdukt);
+                viewSource.View.Refresh();
+            }
+        }
+
+        private void btnDodajProdukt_Click(object sender, RoutedEventArgs e)
+        {
+            Produkt nowyProdukt = new Produkt("", "Nowy Produkt", 0, "Magazyn");
+            ListaProduktow.Add(nowyProdukt);
+            viewSource.View.Refresh();
+        }
     }
 }
