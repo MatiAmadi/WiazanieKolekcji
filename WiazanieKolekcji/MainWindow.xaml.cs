@@ -2,20 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Data;
 
 namespace WiazanieKolekcji
 {
-
     public partial class MainWindow : Window
     {
         private ObservableCollection<Produkt> ListaProduktow = null;
@@ -39,9 +31,7 @@ namespace WiazanieKolekcji
 
             viewSource = new CollectionViewSource { Source = ListaProduktow };
             viewSource.View.Filter = FiltrUzytkownika;
-
             lstProdukty.ItemsSource = viewSource.View;
-
             viewSource.View.SortDescriptions.Add(new SortDescription("Magazyn", ListSortDirection.Ascending));
             viewSource.View.SortDescriptions.Add(new SortDescription("Nazwa", ListSortDirection.Ascending));
         }
@@ -51,7 +41,7 @@ namespace WiazanieKolekcji
             if (string.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return ((item as Produkt).Nazwa?.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase) ?? false);
+                return ((item as Produkt)?.Nazwa?.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase) ?? false);
         }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
@@ -73,6 +63,37 @@ namespace WiazanieKolekcji
             Produkt nowyProdukt = new Produkt("", "Nowy Produkt", 0, "Magazyn");
             ListaProduktow.Add(nowyProdukt);
             viewSource.View.Refresh();
+        }
+
+        private void lstProdukty_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lstProdukty.SelectedItem is Produkt wybranyProdukt)
+            {
+                EdytujProdukt(wybranyProdukt);
+            }
+        }
+
+        private void EdytujProdukt(Produkt produkt)
+        {
+            txtSymbol.Text = produkt.Symbol;
+            txtNazwa.Text = produkt.Nazwa;
+            txtLiczbaSztuk.Text = produkt.LiczbaSztuk.ToString();
+            txtMagazyn.Text = produkt.Magazyn;
+        }
+
+        private void btnZapiszZmiany_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstProdukty.SelectedItem is Produkt produkt)
+            {
+                produkt.Symbol = txtSymbol.Text;
+                produkt.Nazwa = txtNazwa.Text;
+                if (int.TryParse(txtLiczbaSztuk.Text, out int liczba))
+                {
+                    produkt.LiczbaSztuk = liczba;
+                }
+                produkt.Magazyn = txtMagazyn.Text;
+                viewSource.View.Refresh();
+            }
         }
     }
 }
