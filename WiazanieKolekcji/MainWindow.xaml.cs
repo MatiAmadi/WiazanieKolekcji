@@ -8,17 +8,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace WiazanieKolekcji
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<Produkt> ListaProduktow = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            PrzygotujWiazanie();
+        }
+
+        private void PrzygotujWiazanie()
+        {
+            ListaProduktow = new ObservableCollection<Produkt>
+            {
+                new Produkt("O1-11", "Ołówek", 8, "Katowice 1"),
+                new Produkt("PW-20", "Pióro wieczne", 75, "Katowice 2"),
+                new Produkt("DZ-10", "Długopis żelowy", 121, "Katowice 1"),
+                new Produkt("DZ-12", "Długopis kulkowy", 280, "Katowice 2")
+            };
+
+            lstProdukty.ItemsSource = ListaProduktow;
         }
     }
 }
