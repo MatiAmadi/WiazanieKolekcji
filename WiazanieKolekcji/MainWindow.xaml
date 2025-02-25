@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WiazanieKolekcji"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-        
-    </Grid>
+        Title="Lista produktów" Height="450" Width="800">
+	<Grid>
+		<ListView x:Name="lstProdukty" Margin="10">
+			<ListView.View>
+				<GridView>
+					<GridView.Columns>
+						<GridViewColumn Header="Symbol"
+                                        DisplayMemberBinding="{Binding Symbol}" Width="100"/>
+						<GridViewColumn Header="Nazwa"
+                                        DisplayMemberBinding="{Binding Nazwa}" Width="200"/>
+						<GridViewColumn Header="Liczba sztuk"
+                                        DisplayMemberBinding="{Binding LiczbaSztuk}" Width="120"/>
+						<GridViewColumn Header="Magazyn"
+                                        DisplayMemberBinding="{Binding Magazyn}" Width="150"/>
+					</GridView.Columns>
+				</GridView>
+			</ListView.View>
+		</ListView>
+	</Grid>
 </Window>
